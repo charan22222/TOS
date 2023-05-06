@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 1em 0;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            margin: 1em 0;
+            padding: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            resize: none;
+        }
+
+        .submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .submit:hover {
+            background-color: #8e3e5d;
+        }   
+
+    </style>
+</head>
+<body>
+    <h1>Enter Clauses:</h1>
+	<form class="form" action="{{ url_for('predict') }}" method="post">
+		<textarea class='container' name="clauses" rows="10" cols="50"></textarea>
+		<br>
+		<input class='submit' type="submit" value="Predict">
+	</form>
+	{% if prediction %}
+		<h2>Prediction: {{ prediction }}</h2>
+	{% endif %}
+</body>
+</html>
